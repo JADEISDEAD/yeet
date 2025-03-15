@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yeet or Be Yeeted</title>
+    <style>
+        body { text-align: center; font-family: Arial, sans-serif; margin: 50px; }
+        button { font-size: 24px; padding: 10px 20px; cursor: pointer; }
+        .object { position: absolute; font-size: 30px; }
+    </style>
+</head>
+<body>
+    <h1>Yeet or Be Yeeted!</h1>
+    <button onclick="yeet()">YEET</button>
+    <script>
+        function yeet() {
+            const obj = document.createElement("div");
+            obj.className = "object";
+            obj.innerText = "🥔"; // Change to whatever random object
+            document.body.appendChild(obj);
+            
+            obj.style.left = Math.random() * window.innerWidth + "px";
+            obj.style.top = "50px";
+            
+            const angle = Math.random() * 360;
+            const force = Math.random() * 500 + 300;
+            const xVelocity = Math.cos(angle) * force;
+            const yVelocity = Math.sin(angle) * force;
+            
+            let posX = parseFloat(obj.style.left);
+            let posY = 50;
+            
+            const yeetInterval = setInterval(() => {
+                posX += xVelocity * 0.05;
+                posY += yVelocity * 0.05;
+                obj.style.left = posX + "px";
+                obj.style.top = posY + "px";
+                
+                if (posY > window.innerHeight || posX > window.innerWidth || posX < 0) {
+                    clearInterval(yeetInterval);
+                    obj.remove();
+                }
+            }, 16);
+
+            const audio = new Audio("https://www.myinstants.com/media/sounds/yeet.mp3");
+            audio.play();
+        }
+    </script>
+</body>
+</html>
