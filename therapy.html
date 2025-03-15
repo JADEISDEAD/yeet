@@ -8,9 +8,27 @@
         body { text-align: center; font-family: Arial, sans-serif; margin: 50px; }
         button { font-size: 24px; padding: 10px 20px; cursor: pointer; }
         .object { position: absolute; font-size: 30px; }
+         .custom-button {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            border: none;
+            background: none;
+            cursor: pointer;
+        }
+        .custom-button img {
+            width: 40px;
+            height: 40px;
+        }
+        .custom-button img:hover {
+            opacity: 0.8;
+        }
     </style>
 </head>
 <body>
+    <a href="https://jadeisdead.github.io/jadeisdead1/jadeisdead.html" target="_blank" class="custom-button">
+        <img src="https://media.tenor.com/yso9Ncqwm5UAAAAi/click-subscribe.gif" alt="Custom Button">
+    </a>
     <h1>Yeet or Be Yeeted</h1>
     <button onclick="yeet()">YEET</button>
     <script>
@@ -46,6 +64,7 @@
             const audio = new Audio("https://www.myinstants.com/media/sounds/yeet.mp3");
             audio.play();
         }
+        
     </script>
 </body>
 </html>
